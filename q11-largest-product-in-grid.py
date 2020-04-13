@@ -29,7 +29,10 @@ for i in range (20):
   for j in range (20):
     print ("Now j is ", j)
     if j+3 < 20: 
-      product_row = product(grid[i][j:j+4])
+      product_row = product([grid[i][j],
+			     grid[i][j+1],
+			     grid[i][j+2],
+			     grid[i][j+3]])
     if i+3 < 20:
       product_col = product([grid[i][j],
 			     grid[i+1][j],
