@@ -55,15 +55,13 @@ def cycle(n):
 
 upper = 1000
 max_l = 0
-max_result = ( 0, set())
 num = 0
 for d in range(3, upper+1):
   result = cycle(d)
-  if max_l < result[0]:
-    max_l = result[0]
-    max_result = result 
+  if max_l < result:
+    max_l = result
     num = d
 
-print ("Max reciprocal number found in {}, the length is {}, the cycles are {}".format(num, max_result[0], max_result[1]))
+print ("Max reciprocal number found in {}, the length is {}".format(num, max_l))
 
 print ("\nThis application used {} seconds to run".format(time.time() - start_time))
