@@ -32,22 +32,24 @@ import time
 start_time = time.time()
 
 '''
-n is the number needs to be check, p is the cycle length upper bound.
+n is the number needs to be checked
 '''
 
-def cycle(n, p):
+def cycle(n):
   i = 0 # if there is any cycle, what it might be. 
   d = 1
   remainders = set()
 
-  # I didn't come up this one, but i know the cycle upper bound is itself. 
-  while i < p:
+  # ocycle upper bound is itself. 
+  # break if there is a cycle or reach the upper bound 
+  while i < n:
     d = d % n
     if d in remainders:
       break
     remainders.add(d)
     d = 10 * d
     i += 1
+
   # in this case, I just want to find out the max cycle, so I just return the length. If I want to know the remainder in order, set wouldn't be a good choice to store the data. 
   return i
 
@@ -56,7 +58,7 @@ max_l = 0
 max_result = ( 0, set())
 num = 0
 for d in range(3, upper+1):
-  result = cycle(d,d)
+  result = cycle(d)
   if max_l < result[0]:
     max_l = result[0]
     max_result = result 
